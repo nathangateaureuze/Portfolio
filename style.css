@@ -12,6 +12,11 @@ body
 	background-attachment:fixed;
 }
 
+img:not(.imgText)
+{
+	image-rendering: optimizeSpeed;
+}
+
 .homeBar
 {
   display: grid;
