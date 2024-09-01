@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "GBDevFont";
+  size-adjust: 170%;
+  src: url(./font.ttf);
+}
+
+
+*
+{
+  font-family: "GBDevFont", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}

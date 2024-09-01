@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Portfolio • Nirvana</title>
+
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="shortcut icon" href="../../favicon.ico">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="../project.css">
+        <link rel="stylesheet" href="./style.css">
+
+        <style>
+            .section
+            {
+              background-color: #ffffff69;
+              color: #292929;
+            }
+        </style>
+    </head>
+
+    <body style="
+        background-image: 
+            repeating-linear-gradient( 
+                to bottom, 
+                #533159, 
+                #533159 60%, 
+                #1c111d 90%, 
+                #0b070c 100% );
+                 ">
+        <div class="sidebar"> 
+            <a href="../../projects.html"class="sidebarBack" style="background-color: #33813f;">HOME</a>
+            <img class="sidebarScreen" src="./sidebar/affiche.png" style="transform: translateX(-30%);">
+        </div>
+
+        <div class="content">
+            <div class="title">
+                <img src="./title.png" class="title">
+            </div>
+
+            <div class="section">
+                <div class="text">
+                    Nirvana is a fast-fps / bullet-hell game.<br>
+                    It was a graduation group project, we were 10 working on it.
+                </div>
+            </div>
+
+            <iframe class="video" width="1080" height="608" src="https://www.youtube-nocookie.com/embed/g7oO7x9VcXM?si=dPC2AyhY5jbqANSb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <div class="section">
+                <div class="text">
+                    Here, I will show the main lines of the enemies behavior of the game.<br>
+                    There is a lot to cover regarding the subject and I don't have the skills to explain clearly.<br>
+                    <br>                    
+                    I'll try to explain as best as I can through 4 major points.<br>
+                    Balancing:  individual-behavior | synchronization | shoot | placement<br>
+                    <br>
+                    I had to find a single solution that solve those 4 "problems".<br>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="text">
+                    <div class="subtitle">Solution:</div><br>
+                    Managing 3 "zones" around the player du joueur.<br>
+                    The enemies will stand to a determined average distance from the player.
+                    <div class="image">
+                        <img src="scheme-zones.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" style="background-color: #6c6c6c61;">
+                <div class="image" style="grid-template-columns: 33% 33% 34%;">
+                    <img src="caption/player.png" style="width: auto;">
+                    <img src="caption/enemy.png" style="width: auto;">
+                    <img src="caption/zones.png" style="max-height: 300px; width: auto;">
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="text">
+                    We can choose the number of enemies in the two first zones and the others will go into the last zone.<br>
+                    The enemy → zone linking choice is done by sorting their current distance to the player.<br>
+                    <div class="image">
+                        <img src="changing-zone.gif">
+                    </div>
+                    <br>
+                    Allocating a zone to an enemy is done by modifying this enemy's range.<br>
+                    Because in order to replace themselves, enemies move toward a position where they get a better range ; they get progressively closer to the desired zone.
+                    <div class="image">
+                        <img src="range.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="text">
+                    Now that the enemies are sorted, it is very much simpler to have the control on the way they shoot.<br>
+                    To distinguish the patterns from each other, we just have to limit the shots so that there is inly one at a time per zone.<br>
+                    <br>
+                    To pace the shots, we can alternate the current shooting zone.<br>
+                    And to diversify the battles, we can modify the delay between each shots and the alternating zone order.
+                    <br>
+                <div class="image" style="grid-template-columns: 50% 50%;">
+                    <img src="shot1.gif">
+                    <img src="shot2.gif">
+                </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="text">
+                    <div class="subtitle">Conclusion</div>
+                    <br>
+                    <div class="board">
+                        <div>
+                            • Placement : 
+                        </div>
+                        <div>
+                            Well spreaded around the player. The fact that they focus on getting a good range, AND the secondary parameter of trying to spread out, adds a natural feel to the placement behavior.
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="board">
+                        <div>
+                            • Shoot : 
+                        </div>
+                        <div>
+                            Distinguishable (suited for bullet-hell), and the pace can vary to feels natural too.
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="board">
+                        <div>
+                            • Synchronization : 
+                        </div>
+                        <div>
+                            Orchestrated shots, enemies are positionning themselves where there is the least enemy density.
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="board">
+                        <div>
+                            • Individual-Behavior : 
+                        </div>
+                        <div>
+                            Frequent shoot opportunities, autonomous movements not constrained by other actions (even by shooting). They also have a "flee" action wich is independent of other enemies.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

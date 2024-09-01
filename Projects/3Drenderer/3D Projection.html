@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Portfolio • 3D Projection</title>
+
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="shortcut icon" href="../../favicon.ico">
+
+        <link rel="stylesheet" href="../project.css">
+        <link rel="stylesheet" href="./style.css">
+
+        <style>
+            .section
+            {
+              background-color: #3770f67f;
+            }
+
+            .sidebar
+            {
+                background-color: #e0e0e0;
+            }
+        </style>
+    </head>
+
+    <body style="background: #a7a7a7">
+        <div class="sidebar"> 
+            <a href="../../projects.html"class="sidebarBack" style="background-color: #3770f6;">HOME</a>
+            <a href="https://bellard.org/tcc/"><img class="sidebarLink" src="./tcc-logo.png"></a>
+            <a href="https://libsdl.org/"><img class="sidebarLink" src="./SDL_logo.png"></a>
+        </div>
+
+        <div class="content">
+            <div class="title">
+                <div style="color: #222; text-decoration: underline;"> 3D PROJECTION </div>
+            </div>
+
+            <div class="disclaimer">
+                <div class="text">
+                    OUTDATED PROJECT<br><br>
+                    I am currently working on Vulkan to switch this project to something more usable.<br>
+                    I will post a section about it, as soon as I get a consitent progress.
+                </div>
+            </div>
+
+            <div class="section">
+                <img src="./view.gif" style="float: left; padding-right: 20px; width: 29%;">
+                <div class="text">
+                    For this program, I wanted to learn the fundamental
+                    concepts of 3D rendering; then apply them starting
+                    from the very simple windows.h's window in c.<br>
+                    My goal was to get a minimalist result.<br>
+                    <br>
+                    I searched for a minimalist c compiler and found: <a href="https://bellard.org/tcc/" style="text-decoration: none;">tcc</a>.
+                    Then I learn to manage memory and c limitations.<br>
+                    <br>
+                    It has been my first experience with setting up a well
+                    planned environnment specific to a project.
+                    This initiated me to automatization, and precisely
+                    custom batch files.<br>
+                    <br>
+                    Once I had all my elements,
+                    I tested the program using <a href="https://libsdl.org/" style="text-decoration: none;">SDL</a>.<br>
+                </div>
+            </div>
+            <div class="section">
+                <img src="./lineAlgo.PNG" style="float: right; padding-left: 20px; width: 29%;">
+                <div class="text">
+                    I started by implementing the <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm" style="text-decoration: none;">Bresenham's line algorithm</a>.<br>
+                    It consists of choosing a starting and an ending point and,
+                    check the ratio of the x and y axis + an error value that
+                    increase each incrementatiion, then, know if the next pixel
+                    will come along or lower/higher than the previous pixel.<br>
+                </div>
+            </div>
+            <div class="section">
+                <img src="./rotation matrices.PNG" style="float: left; padding-right: 20px; width: 29%;">
+                <div class="text">
+                    To apply transform to an object, the program
+                    needs to use matrices. <br>
+                    In this case these matrices are for a rotation.<br>
+                    Every points have 3 axes,
+                    and the depth axis will influence the original
+                    2 dimensionnal axes using the sin and cos
+                    functions, wich have a "circular rotator effect".<br>
+                </div>
+            </div>
+            <div class="section">
+                <img src="./window handles + bitmap.PNG" style="float: right; padding-left: 20px; width: 42%;">
+                <div class="text">
+                    To complete, I removed SDL and set up a
+                    window handler. Using a standard window,
+                    as I did for SDL, caused very problematics
+                    performance issues. So I looked for
+                    other ways to display what I had.
+                    I found BitBlt ; it is a function that copy 
+                    a bitmap to another. Set the window to display 
+                    a bitmap, and the screen will be refresh correctly! <br>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
