@@ -12,9 +12,14 @@ body
 	background-attachment:fixed;
 }
 
-img:not(.imgText)
+img:not(.imgText,.gifScheme)
 {
 	image-rendering: optimizeSpeed;
+}
+
+.gifScheme
+{
+	image-rendering: optimizeQuality;
 }
 
 .homeBar
