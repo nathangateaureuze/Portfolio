@@ -2,13 +2,13 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%;  }
 
 *
 {
-	font-family: sans-serif;
+	font-family: Montserrat;
 }
 
 body 
 {
 	background-color: #cfc5bc; /* #4d4844     (#1bbee6, #3a7fc0) (#a5a5a5, #cfc5bc) */
-	background: linear-gradient(#151515, #3b3b3b);
+	background: linear-gradient(#817fc4, #594e7e);
 	background-attachment:fixed;
 }
 
@@ -38,12 +38,11 @@ img:not(.imgText,.gifScheme)
 	{
 	margin-right: 5%;
   font-size: 1.4rem;
-  font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
   color: #fff;
   text-align: center;
-  background-color: #131313;
+  background-color: #1b1b1b;
   border-radius: 4rem;
   height: 2.6rem;
   align-content: center;
@@ -71,12 +70,14 @@ img:not(.imgText,.gifScheme)
 {
 	display: grid;
   justify-content: center;
-  grid-template-columns: 26% 26% 26%;
+  grid-template-columns: 30% 30% 30%;
   padding-top: 1%;
-  padding-bottom: 6vh;
-  margin: 5%;
+  padding-bottom: 5vh;
+  margin: 25%;
+  margin-top: 4%;
+  margin-bottom: 5%;
   border-radius: 1rem;
-  column-gap: 5%;
+  column-gap: 1%;
   row-gap: 3vh;
   background-color: #a8a8a857;
 
@@ -93,10 +94,10 @@ img:not(.imgText,.gifScheme)
     text-align: center;
     border-radius: 0.8rem;
     box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.5);
-    background-color: #111;
+    background-color: #1b1b1b;
 
     text-decoration: none;
-    font-size: 2.9rem;
+    font-size: 1.4rem;
 
     transition: all 0.5s ease;
 
@@ -121,9 +122,10 @@ img:not(.imgText,.gifScheme)
   .detail
   {
   	text-align: left;
-  	color: white;
+  	color: #c3c3c3;
+  	font-weight: bold;
   	margin: 5%;
-  	font-size: 1.3rem;
+  	font-size: 0.75rem;
   }
 }
 .project:hover
