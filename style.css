@@ -26,12 +26,9 @@ img:not(.imgText,.gifScheme)
 {
   display: grid;
   grid-template-columns: 50% 50%;
+  padding: 0.5rem;
   width: 19rem;
-  height: 3.4rem;  
   border-radius: 8rem;
-  align-content: center;
-  justify-content: center;
-  margin-top: 2%;
   box-shadow: 0rem 0rem 1rem 0.01rem rgba(255, 255, 255, 0.41) inset;
 
 	a
@@ -68,18 +65,12 @@ img:not(.imgText,.gifScheme)
 
 .projectBar
 {
-	display: grid;
+  display: grid;
   justify-content: center;
   grid-template-columns: 30% 30% 30%;
+  gap: 1rem;
   padding-top: 1%;
-  padding-bottom: 5vh;
-  margin: 25%;
-  margin-top: 4%;
-  margin-bottom: 5%;
-  border-radius: 1rem;
-  column-gap: 1%;
-  row-gap: 3vh;
-  background-color: #a8a8a857;
+  padding-bottom: 1%;
 
   .cell
 	{
