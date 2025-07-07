@@ -57,7 +57,7 @@
             <div class="section">
                 <div class="text">
                     <div class="subtitle">Solution:</div><br>
-                    Managing 3 "zones" around the player du joueur.<br>
+                    Managing 3 "zones" around the player.<br>
                     The enemies will stand to a determined average distance from the player.
                     <div class="image">
                         <img src="scheme-zones.png">
@@ -66,7 +66,7 @@
             </div>
 
             <div class="section" style="background-color: #6c6c6c61;">
-                <div class="image" style="grid-template-columns: 33% 33% 34%;">
+                <div class="image" style="grid-template-columns: 33% 33% 33%;">
                     <img src="caption/player.png" style="width: auto;">
                     <img src="caption/enemy.png" style="width: auto;">
                     <img src="caption/zones.png" style="max-height: 300px; width: auto;">
@@ -81,7 +81,8 @@
                         <img class="gifScheme" src="changing-zone.gif">
                     </div>
                     <br>
-                    Allocating a zone to an enemy is done by modifying this enemy's range.<br>
+                    Allocating a zone to an enemy is done by modifying this enemy's range.
+                    <br>
                     Because in order to replace themselves, enemies move toward a position where they get a better range ; they get progressively closer to the desired zone.
                     <div class="image">
                         <img src="range.png">
@@ -95,12 +96,11 @@
                     To distinguish the patterns from each other, we just have to limit the shots so that there is inly one at a time per zone.<br>
                     <br>
                     To pace the shots, we can alternate the current shooting zone.<br>
-                    And to diversify the battles, we can modify the delay between each shots and the alternating zone order.
-                    <br>
-                <div class="image" style="grid-template-columns: 50% 50%;">
-                    <img class="gifScheme" src="shot1.gif">
-                    <img class="gifScheme" src="shot2.gif">
-                </div>
+                    And to diversify the battles, we can modify the delay between each shots and the alternating zone order.<br>
+                    <div class="image" style="grid-template-columns: 50% 50%;">
+                        <img class="gifScheme" src="shot1.gif">
+                        <img class="gifScheme" src="shot2.gif">
+                    </div>
                 </div>
             </div>
 
