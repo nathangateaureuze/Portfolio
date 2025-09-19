@@ -1,9 +1,25 @@
 html, body { margin: 0; padding: 0; width: 100%; height: 100%;  }
 
+@font-face 
+{
+	font-family: "Montserrat";
+	size-adjust: 130%;
+	src: url(Montserrat-VariableFont_wght.ttf);
+}
+@font-face 
+{
+	font-family: "Montserrat-Italic";
+	size-adjust: 130%;
+	src: url(Montserrat-Italic-VariableFont_wght.ttf);
+}
+
 :root{
-	--main-color: hsl(233, 29%, 11%);
+	--main-color: rgb(20, 22, 36);
+	--main-color-value: 20, 22, 36;
 	--text-color: #252344;
 	--text-color-bright: #e4e2ff;
+
+	--footer-height: 10vh; /* vh */
 }
 
 *
@@ -11,14 +27,13 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%;  }
 	font-family: Montserrat;
 }
 
-body 
+.home 
 {
 	background-color: #cfc5bc;
-}
 
-img:not(.imgText,.gifScheme)
-{
-	image-rendering: optimizeSpeed;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 .gifScheme
@@ -27,7 +42,6 @@ img:not(.imgText,.gifScheme)
 }
 
 .footer{
-	position: fixed;
 	left: 0;
 	bottom: 0;
 	background-color: var(--main-color);
@@ -35,45 +49,48 @@ img:not(.imgText,.gifScheme)
 	justify-content: center;
 	display: flex;
 	box-sizing: border-box;
+	max-height: 60px;
+	margin-top: auto;
 }
 .footer img {
-	padding: 0.5rem;
-	max-height: 3rem;
+	padding: 4px;
 	width: auto;
+	max-height: 3rem;
 	object-fit: contain;
+}
+
+.title
+{
+	font-weight: bold;
+	background-color: rgba(0, 0, 0, 0.18);
+	max-width: 34%;
+	margin: 1.5rem;
+	padding: 8px;
 }
 
 .projectBar
 {
   display: grid;
   justify-content: center;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 80%;
   gap: 1rem;
   padding-top: 1%;
   padding-bottom: 1%;
 
 	.project
 	{
-	align-content: center;
-	text-align: center;
-	background-color: var(--main-color);
-	border-radius: 0.4rem;
-	box-shadow: 0px 0px 0.5rem 0px rgba(0, 0, 0, 1);
+		align-content: center;
+		text-align: center;
+		background-color: var(--main-color);
+		border-radius: 0.4rem;
+		box-shadow: 0px 0px 0.5rem 0px rgba(0, 0, 0, 1);
 
-	text-decoration: none;
-	font-size: 1.4rem;
+		background-size: cover;
+		background-position: center center;
 
-	transition: all 0.5s ease;
+		text-decoration: none;
 
-		.pic
-		{
-			transition: all 0.5s ease;
-		}
-		.pic:hover
-		{
-			transform: scale(1.04);
-			filter: brightness(1.05);
-		}
+		transition: all 0.5s ease;
 
 		img
 		{
@@ -87,22 +104,13 @@ img:not(.imgText,.gifScheme)
 	{
 		text-align: left;
 		color: var(--text-color-bright);
-		font-weight: bold;
-		margin: 5%;
-		font-size: 0.75rem;
+		margin: 3%;
 	}
 }
 .project:hover
 {
 	transform: scale(1.04);
 	filter: brightness(1.05);
-}
-
-.title
-{
-	text-decoration: underline; 
-	font-size: 2rem; 
-	color: var(--text-color);
 }
 
 .disclaimer

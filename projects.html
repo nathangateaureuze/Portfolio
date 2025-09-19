@@ -6,58 +6,43 @@
 
         <link rel="stylesheet" href="./style.css">
         <link rel="shortcut icon" href="./favicon.ico">
-
-        <style>
-            @font-face 
-            {
-              font-family: "GBDevFont";
-              size-adjust: 130%;
-              src: url(./Projects/GameBoyDevelopment/font.ttf);
-            }
-        </style>
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-
     </head>
 
-    <body>
-        <div class="footer">
-            <a class="pic" href="https://github.com/nathangateaureuze"><img src="./icons/github-white.png"></a>
-            <a class="pic" href="https://linkedin.com/in/nathan-gateau-reuze"><img src="./icons/linkedin.png"></a>
+    <body class="home">        
+        <div class="title">
+            Projects
         </div>
-        
-        <div class="projectBar">
-            <div class="title"> 
-                Projects 
-            </div>
-            <div> </div>
-            <div> </div>
 
-            <div class="project" style="align-content: start;">
-                <a class="pic" href="https://store.steampowered.com/app/3462980/Nirvana/"><img src="./Projects/Nirvana/title.png"></a>
+        <div class="projectBar">
+
+            <a class="project" href="https://store.steampowered.com/app/3462980/Nirvana/"
+            style=" background-image: linear-gradient(to right, rgba(var(--main-color-value), 0.7) 0 100%), url(./Projects/Nirvana/sidebar/affiche.png);
+                    background-position: top center;">
+                <div class="title">
+                    Nirvana
+                </div>
                 <div class="detail">
-                    Graduation Project<br>
+                    Graduation Game<br>
                     <br>
                     Genre: Fast-Fps / Bullet-Hell<br>
                     Role: AI programmer<br>
                 </div>
-            </div>
-            <div class="project" style="align-content: start;">
-                <a class="pic" href="https://minewarpro.itch.io/unchained" ><img src="./Projects/unchained.png"></a>
+            </a>
+            <a class="project" href="https://minewarpro.itch.io/unchained" 
+            style="background-image: linear-gradient(to right, rgba(var(--main-color-value), 0.7) 0 100%), url(./Projects/unchained.png);">
+                <div class="title">
+                    Unchained
+                </div>
                 <div class="detail">
-                    Genre: First Person Horror Game<br>
+                    Horror Game<br>
+                    <br>
                     Role: 3D modeler / texturer<br>
                 </div>
-            </div>
-            <a class="project" href="https://github.com/nathangateaureuze/BirthDates">
-                <div class="pic" style="font-weight: bold; color: #d1d6ff">
+            </a>
+            <a class="project" href="https://github.com/nathangateaureuze/BirthDates"
+            style="background-image: linear-gradient(to right, rgba(var(--main-color-value), 0.7) 0 100%), url(./Projects/birthdates.png);
+                    background-size: contain;">
+                <div class="title">
                     BirthDates
                 </div>
                 <div class="detail">
@@ -65,29 +50,41 @@
                 </div>
             </a>
         </div>
-        
-        <div class="projectBar">
-            <div class="title"> 
-                Demos 
-            </div>
-            <div> </div>
-            <div> </div>
 
+        <div class="title"> 
+            Breakdowns
+        </div>
+
+        <div class="projectBar">
             <a class="project" href="./Projects/Nirvana/Nirvana.html">
-                <div class="pic" style="font-family: Sawarabi Mincho; color: #d0bb9b;">
+                <div class="title">
                     Enemy Behavior
+                </div>
+                <div class="detail">
+                    Breakdown about my main work on Nirvana<br>
                 </div>
             </a>
             <a class="project" href="./Projects/GameBoyDevelopment/GBDev.html">
-                <div class="pic" style="font-family: GBDevFont; color: #88c070;">
+                <div class="title">
                     GBDev
+                </div>
+                <div class="detail">
+                    Small demo about my first steps in GameBoy Development<br>
                 </div>
             </a>
             <a class="project" href="./Projects/3Drenderer/3D Projection.html">
-                <div class="pic" style="font-weight: bold; color: #d1d6ff">
+                <div class="title">
                     3D Projection
                 </div>
+                <div class="detail">
+                    Research about 3D projection and matrices <br>
+                </div>
             </a>
+        </div>
+        
+        <div class="footer">
+            <a class="pic" href="https://github.com/nathangateaureuze"><img src="./icons/github-white.png"></a>
+            <a class="pic" href="https://linkedin.com/in/nathan-gateau-reuze"><img src="./icons/linkedin.png"></a>
         </div>
     </body>
 </html>
