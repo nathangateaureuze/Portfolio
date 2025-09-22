@@ -26,75 +26,74 @@
                                                 #a3b999 100%
                                                 );
                  ">
-        <div class="sidebar"> 
-            <a href="../../projects.html"class="sidebarBack" style="background-color: #88c070;">HOME</a>
-            <a href="https://rgbds.gbdev.io/"><img class="sidebarLink" src="./sidebar/rgbds.png"></a>
-            <img class="sidebarImage" src="./sidebar/hedgehog.png">
-            <img class="sidebarImage" src="./sidebar/grid.png">
-            <img class="sidebarImage" src="./sidebar/beaver.png">
-        </div>
-
-        <div class="content">
-            <div class="title">
-                <div style="font-size: 2.1rem;">Grid Turn Based Combat System</div>
-                <div style="font-size: 1.92rem; color: #346856;">GameBoy Developpment - WIP</div>
-            </div>
-            <div class="section">
-                <img src="./movements.gif" style="float: left; padding-right: 20px; width: 29%;">
-                <div class="text">
-                    Programming on gameboy is a big step forward in my learning of
-                    coding in general. It encompasses multiple important programming
-                    concepts that are not usually covered in standard projects, example:<br>
-                    • scripting a complete stream of literal instructions<br>
-                    • hardware memory managing (inputs, objects diplaying...)<br>
-                    <br>
-                    My objectif is to have a framework for a turn based game with
-                    deplacements and attack range. <br>
+        <div class="main">
+            <div class="content">
+                <div class="title">
+                    <div style="font-size: 2.1rem;">Grid Turn Based Combat System</div>
+                    <div style="font-size: 1.92rem; color: #346856;">GameBoy Developpment - WIP</div>
+                </div>
+                <div class="section">
+                    <img src="./movements.gif" style="float: left; padding-right: 20px; width: 29%;">
+                    <div class="text">
+                        Programming on gameboy is a big step forward in my learning of
+                        coding in general. It encompasses multiple important programming
+                        concepts that are not usually covered in standard projects, example:<br>
+                        • scripting a complete stream of literal instructions<br>
+                        • hardware memory managing (inputs, objects diplaying...)<br>
+                        <br>
+                        My objectif is to have a framework for a turn based game with
+                        deplacements and attack range. <br>
+                    </div>
+                </div>
+                <div class="section">
+                    <img src="./environment.PNG" class="imgText" style="float: right; padding-left: 20px; width: 50%;">
+                    <div class="text">
+                        I am using the <a href="https://rgbds.gbdev.io/" style="text-decoration: none;">RGBDS</a> toolchain, so the way to
+                        operate is more complex. To compile my code,
+                        I wrote a, more advanced, batch file than I
+                        did for the 3D rendering project. I have
+                        split my code in multiple files in order to
+                        have an intelligible workspace. <br>
+                    </div>
+                </div>
+                <div class="section">
+                    <img src="./already pressed.png" class="imgText" style="float: left; padding-right: 20px; width: 31%;">
+                    <div class="text">
+                        I practised working in RAM with custom formatted data; getting
+                        data from specific addresses (input memory map in this example).<br>
+                        <br>
+                        This function abort instructions if a key has already been pressed.
+                        As you can see, I am comparing a specific bit (the 8th) to my
+                        variable, wich stores the current pressed keys, to know if I have to
+                        skip the event called by the current input (every instructions following
+                        the "Down:" label).<br>
+                    </div>
+                </div>
+                <div class="section">
+                    <img src="./tile.gif" style="float: right; padding-left: 20px; width: 34%;">
+                    <div class="text">
+                        This is my current playground (very beginning of the project).
+                        The tiles change corresponding to the character position;
+                        after a movement, the reached tile change to blank and
+                        the previous one get back to normal. By detecting the
+                        tilemap address on wich there is the character, I can change
+                        its tile address attribute (its graphics). <br>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="text">
+                        <div class="subtitle"> What is next? </div><br>
+                        • structuring as object oriented<br>
+                        • porting the project to gbc<br>
+                        • turn-based combat system<br>
+                        • actions to do in a turn<br>
+                    </div>                          
                 </div>
             </div>
-            <div class="section">
-                <img src="./environment.PNG" class="imgText" style="float: right; padding-left: 20px; width: 50%;">
-                <div class="text">
-                    I am using the <a href="https://rgbds.gbdev.io/" style="text-decoration: none;">RGBDS</a> toolchain, so the way to
-                    operate is more complex. To compile my code,
-                    I wrote a, more advanced, batch file than I
-                    did for the 3D rendering project. I have
-                    split my code in multiple files in order to
-                    have an intelligible workspace. <br>
-                </div>
-            </div>
-            <div class="section">
-                <img src="./already pressed.png" class="imgText" style="float: left; padding-right: 20px; width: 31%;">
-                <div class="text">
-                    I practised working in RAM with custom formatted data; getting
-                    data from specific addresses (input memory map in this example).<br>
-                    <br>
-                    This function abort instructions if a key has already been pressed.
-                    As you can see, I am comparing a specific bit (the 8th) to my
-                    variable, wich stores the current pressed keys, to know if I have to
-                    skip the event called by the current input (every instructions following
-                    the "Down:" label).<br>
-                </div>
-            </div>
-            <div class="section">
-                <img src="./tile.gif" style="float: right; padding-left: 20px; width: 34%;">
-                <div class="text">
-                    This is my current playground (very beginning of the project).
-                    The tiles change corresponding to the character position;
-                    after a movement, the reached tile change to blank and
-                    the previous one get back to normal. By detecting the
-                    tilemap address on wich there is the character, I can change
-                    its tile address attribute (its graphics). <br>
-                </div>
-            </div>
-            <div class="section">
-                <div class="text">
-                    <div class="subtitle"> What is next? </div><br>
-                    • structuring as object oriented<br>
-                    • porting the project to gbc<br>
-                    • turn-based combat system<br>
-                    • actions to do in a turn<br>
-                </div>                          
+            <div class="footer">
+                <a class="left" href="../../projects.html">HOME</a>
+                <a class="pic" href="https://github.com/nathangateaureuze"><img src="../../icons/github-white.png"></a>
+                <a class="pic" href="https://linkedin.com/in/nathan-gateau-reuze"><img src="../../icons/linkedin.png"></a>
             </div>
         </div>
     </body>
