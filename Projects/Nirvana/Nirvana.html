@@ -9,14 +9,6 @@
 
         <link rel="stylesheet" href="../project.css">
         <link rel="stylesheet" href="./style.css">
-
-        <style>
-            .section
-            {
-              background-color: #ffffff69;
-              color: #292929;
-            }
-        </style>
     </head>
 
     <body>
@@ -27,62 +19,119 @@
 
             <div class="section">
                 <div class="text">
-                    Here, I will show the main lines of the enemies behavior of Nirvana, my graduation game.<br>
-                    There is a lot to cover regarding the subject and I don't have the skills to explain clearly.<br>
-                    <br>                    
-                    I'll try to explain as best as I can through 4 major points.<br>
-                    Balancing:  individual-behavior | synchronization | shoot | placement<br>
+                    Here, I will present the main lines of the enemy behavior in Nirvana, my graduation game.<br>
                     <br>
-                    I had to find a single solution that solve those 4 "problems".<br>
+                    The goal is to make the enemies' behavior feel natural.
+                    Each of them has to give the impression to be unique, without hindering each other.
+                    <br>
+                    And most importantly, since it is a bullet-hell, the enemy positions and the bullet patterns are crucial.
+                    We don't want the player to be overwhelmed or unaffected.
                 </div>
             </div>
 
             <div class="section">
                 <div class="text">
                     <div class="subtitle">Solution:</div><br>
-                    Managing 3 "zones" around the player.<br>
-                    The enemies will stand to a determined average distance from the player.
+
+                    The main idea is to manage 3 "zones" around the player.<br>
+                    I will name them:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; - front row<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; - middle row<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; - back row<br>
+                    <br>
+                    This will help to:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; - Spread the enemies evenly around the player<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; - Calculate the bullet-hell shoots-sequences<br>
+
                     <div class="image">
                         <img src="scheme-zones.png">
                     </div>
                 </div>
             </div>
 
-            <div class="section" style="background-color: #6c6c6c61;">
-                <div class="image" style="grid-template-columns: 33% 33% 33%;">
-                    <img src="caption/player.png" style="width: auto;">
-                    <img src="caption/enemy.png" style="width: auto;">
-                    <img src="caption/zones.png" style="max-height: 300px; width: auto;">
-                </div>
-            </div>
-
             <div class="section">
                 <div class="text">
-                    We can choose the number of enemies in the two first zones and the others will go into the last zone.<br>
-                    The enemy → zone linking choice is done by sorting their current distance to the player.<br>
-                    <div class="image">
-                        <img class="gifScheme" src="changing-zone.gif">
+                    <div class="subtitle">Sorting the Enemies</div><br>
+
+                    <div class="section">
+                        I use a <a href="https://en.wikipedia.org/wiki/Quicksort">simple partition quicksort</a> 
+                        to sort the enemies according to their distance from the player.<br>
+                        This function is very sufficient for its purpose.<br>
+                        Here is how I implemented it on blueprint:
+
+                        <div class="image">
+                            <img src="quicksort_main.png">
+                            <img src="quicksort_partition.png">
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        And now comes the idea of the 3 "zones".<br>
+                        Once the enemies are sorted, they are dispatched on a zone by modifying their range.
+                        Because their movements are based on their range, they will be placed naturally.<br>
+                        <br>
+                        Their references are also saved in an array for the corresponding zone.<br>
+                        This is these 3 arrays that provide the control over the enemies.
+
+                        <div class="image">
+                            <img src="range-assignement.png">
+                        </div>
+
+                        The range values depend on the corresponding battle-arena 
+                        (which is the class that manages the coordination algorithms). 
+                        This is useful to adapt the zones' sizes, depending on the battle environment (small, big, narrow, circular, etc...).<br>
+                        I chose this class to inherit from Actor, because it made it easier for the level-designers to manage each area differently.
+                        However, this could have been a game-subsystem or something else depending on how we want to manage the battle system.
                     </div>
                     <br>
-                    Allocating a zone to an enemy is done by modifying this enemy's range.
-                    <br>
-                    Because in order to replace themselves, enemies move toward a position where they get a better range ; they get progressively closer to the desired zone.
-                    <div class="image">
-                        <img src="range.png">
+                    <div class="section">
+                        With this sorting, the enemies will stand at an average predetermined distance from the player in real-time;<br>
+                        Meaning that even if the player moves, the enemies will adapt their position.
+                        <div class="image">
+                            <img src="video.mp4">
+                        </div>
                     </div>
                 </div>
             </div>
-
+            
             <div class="section">
-                <div class="text">
-                    Now that the enemies are sorted, it is very much simpler to have the control on the way they shoot.<br>
-                    To distinguish the patterns from each other, we just have to limit the shots so that there is inly one at a time per zone.<br>
-                    <br>
-                    To pace the shots, we can alternate the current shooting zone.<br>
-                    And to diversify the battles, we can modify the delay between each shots and the alternating zone order.<br>
-                    <div class="image" style="grid-template-columns: 50% 50%;">
-                        <img class="gifScheme" src="shot1.gif">
-                        <img class="gifScheme" src="shot2.gif">
+                <div class="subtitle">Shoots Calculation</div><br>
+                <div class="section">
+                    <div class="text">
+                        Now that we have control the enemies and their positional behavior, 
+                        it is way much easier to control their shoots.<br>
+                        <br>
+                        For example I can launch a shoot sequance such as:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp; - back row (wait 0.2s)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp; - middle row (wait 0.2s)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp; - front row<br>
+
+                        <div class="image">
+                            <img src="token-distribution.png">
+                        </div>
+
+                        I set up a simple token system for the shoot sequences so as not to disrupt the enemies' current behavior.
+                        They shoot when they can.<br>
+                        A shoot sequence launching is actually a token distribution. Once 
+                        all the tokens are retreived (plus other optional parameters), another distribution is called.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="text">
+                        To select the current shooter of a zone, it is very simple.
+                        I have a stack  of references for each enemy. That way, once an enemy gets 
+                        a token, it is pushed-back to the bottom of the "queue".
+                        <div class="image">
+                            <img src="get-shooter.png">
+                        </div>
+
+                        Each enemy type has different patterns, and they shoot the corresponding pattern according to their current position.
+                        <br>
+                        <br>
+                        I also prioritize the low health enemies because they are more likely to
+                        be the current player's target<br>
+                        For clarity, this is not included in the above blueprint. 
+                        There are other details like this that I didn't mentionned for the same reason.
                     </div>
                 </div>
             </div>
@@ -90,45 +139,7 @@
             <div class="section">
                 <div class="text">
                     <div class="subtitle">Conclusion</div>
-                    <br>
-                    <div class="board">
-                        <div>
-                            • Placement : 
-                        </div>
-                        <div>
-                            Well spreaded around the player. The fact that they focus on getting a good range, AND the secondary parameter of trying to spread out, adds a natural feel to the placement behavior.
-                        </div>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="board">
-                        <div>
-                            • Shoot : 
-                        </div>
-                        <div>
-                            Distinguishable (suited for bullet-hell), and the pace can vary to feels natural too.
-                        </div>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="board">
-                        <div>
-                            • Synchronization : 
-                        </div>
-                        <div>
-                            Orchestrated shots, enemies are positionning themselves where there is the least enemy density.
-                        </div>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="board">
-                        <div>
-                            • Individual-Behavior : 
-                        </div>
-                        <div>
-                            Frequent shoot opportunities, autonomous movements not constrained by other actions (even by shooting). They also have a "flee" action wich is independent of other enemies.
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="footer">

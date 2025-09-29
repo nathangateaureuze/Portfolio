@@ -9,7 +9,8 @@ a:hover
 
 .section
 {
-  margin: 3%;
+  margin: 2%;
+  padding: 1%;
   color: #444;
   line-height: 1.9rem;
   font-size: 1.4rem;
