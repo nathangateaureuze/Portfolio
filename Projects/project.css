@@ -12,12 +12,10 @@ a:hover
   margin: 2%;
   padding: 1%;
   color: #444;
-  line-height: 1.9rem;
-  font-size: 1.4rem;
   clear: both;
   overflow: hidden;
   background-color: #2222224d;
-  border-radius: 16px;
+  border-radius: 6px;
 
   a
   {
@@ -62,16 +60,14 @@ a:hover
   margin: 3%;
   font-weight: bold;
   color: #444;
-  line-height: 1;
-  font-size: 3rem;
+  font-size: 1.8rem;
   max-width: 50%;
 }
 
 .subtitle
 {
-  font-size: 2.7rem;
+  font-size: 1.5rem;
   font-weight: bold;  
-  line-height: 4rem;
   text-decoration: underline;
 }
 

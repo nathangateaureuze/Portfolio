@@ -34,18 +34,40 @@
                     <div class="subtitle">Solution:</div><br>
 
                     The main idea is to manage 3 "zones" around the player.<br>
-                    I will name them:<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; - front row<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; - middle row<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; - back row<br>
+                    Here is what it could look like with 3 enemies on the 3 rows:<br>
+                    <div class="grid" style="grid-template-columns: 33% 34% 33%; margin: 2rem;">
+
+                        <div class="grid" style="grid-template-rows: 33% 34% 33%;">
+                            <div class="cell">
+                                Front Row &nbsp;<mark style="background-color: #3cb932ff; outline: dotted black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mark>
+                            </div>
+                            <div class="cell">
+                                Middle Row &nbsp;<mark style="background-color: #c1bd1bff; outline: dotted black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mark>
+                            </div>
+                            <div class="cell">
+                                Back Row &nbsp;<mark style="background-color: #b62a2aff; outline: dotted black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mark>
+                            </div>
+                        </div>
+
+                        <img src="./diagram.svg" class="cell" style="max-width: 100%;">
+                        
+                        <div class="grid" style="grid-template-rows: 50% 50%;">
+                            <div class="cell">
+                                Enemy:
+                                <img src="./enemy_icon.svg" style="max-width: 25%;">
+                            </div>
+                            <div class="cell">
+                                Player:
+                                <img src="./player.svg">
+                            </div>
+                        </div>
+
+                    </div>
                     <br>
                     This will help to:<br>
                     &nbsp;&nbsp;&nbsp;&nbsp; - Spread the enemies evenly around the player<br>
                     &nbsp;&nbsp;&nbsp;&nbsp; - Calculate the bullet-hell shoots-sequences<br>
-
-                    <div class="image">
-                        <img src="scheme-zones.png">
-                    </div>
+                    <br>
                 </div>
             </div>
 
@@ -60,8 +82,8 @@
                         Here is how I implemented it on blueprint:
 
                         <div class="image">
-                            <img src="quicksort_main.png">
-                            <img src="quicksort_partition.png">
+                            <img src="./blueprints/quicksort_main.png">
+                            <img src="./blueprints/quicksort_partition.png">
                         </div>
                     </div>
                     
@@ -74,7 +96,7 @@
                         This is these 3 arrays that provide the control over the enemies.
 
                         <div class="image">
-                            <img src="range-assignement.png">
+                            <img src="./blueprints/range-assignement.png">
                         </div>
 
                         The range values depend on the corresponding battle-arena 
@@ -86,10 +108,15 @@
                     <br>
                     <div class="section">
                         With this sorting, the enemies will stand at an average predetermined distance from the player in real-time;<br>
-                        Meaning that even if the player moves, the enemies will adapt their position.
+                        Meaning that even if the player moves, the enemies will adapt their position.<br>
+                        (in the following video, the color of their ribbon corresponds to their current row)<br>
+                        <br>
                         <div class="image">
-                            <img src="video.mp4">
+                            <video style="width: 60%;" controls>
+                                <source src="./enemy_coordination.mp4" type="video/mp4">
+                            </video> 
                         </div>
+                        <br>
                     </div>
                 </div>
             </div>
@@ -107,7 +134,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp; - front row<br>
 
                         <div class="image">
-                            <img src="token-distribution.png">
+                            <img src="./blueprints/token-distribution.png">
                         </div>
 
                         I set up a simple token system for the shoot sequences so as not to disrupt the enemies' current behavior.
@@ -122,7 +149,7 @@
                         I have a stack  of references for each enemy. That way, once an enemy gets 
                         a token, it is pushed-back to the bottom of the "queue".
                         <div class="image">
-                            <img src="get-shooter.png">
+                            <img src="./blueprints/get-shooter.png">
                         </div>
 
                         Each enemy type has different patterns, and they shoot the corresponding pattern according to their current position.
@@ -132,14 +159,41 @@
                         be the current player's target<br>
                         For clarity, this is not included in the above blueprint. 
                         There are other details like this that I didn't mentionned for the same reason.
+                        <br>
                     </div>
                 </div>
             </div>
 
             <div class="section">
                 <div class="text">
-                    <div class="subtitle">Conclusion</div>
+                    <div class="subtitle">Result</div>
+                    <br>
+                    I let the enemies move freely, while guiding them to a logical location.<br>
+                    Regarding the bullet-hell part, the patterns are highly manageable depending on the specific battle.<br>
+                    <br>
+                    Below are 2 examples of 2 different battle-arena. The first one comes from the tutorial, and the second one is the last one before the boss.<br>
+                    <br>
                     
+                    <div class="grid result">
+                        <div class="cell" style="outline: none;">
+                            <img src="./results/small_area.png">
+                        </div>
+                        <div class="cell" style="outline: none;">
+                            <img src="./results/small_area_waves.png">
+                        </div>
+                    </div>
+                    
+                    <br>
+                    <br>
+                    
+                    <div class="grid result">
+                        <div class="cell" style="outline: none;">
+                            <img src="./results/wide_area.png">
+                        </div>
+                        <div class="cell" style="outline: none;">
+                            <img src="./results/wide_area_waves.png">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="footer">

@@ -1,4 +1,28 @@
 *
 {
-  
+  .grid
+  {
+    display: grid;
+
+    .cell
+    {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: solid black;
+    }
+
+    img
+    {
+      height: auto;
+      max-width: 75%;
+    }
+  }
+
+  .result
+  {
+    grid-template-columns: 60% auto; 
+    outline: solid black;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
 }
