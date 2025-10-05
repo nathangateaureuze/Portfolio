@@ -1,5 +1,16 @@
 *
 {
+  .title
+  {
+    color: white;
+  }
+
+  .section
+  {
+    color: white;
+    background-color: #5757574d;
+  }
+
   .grid
   {
     display: grid;
@@ -10,6 +21,7 @@
       align-items: center;
       justify-content: center;
       outline: solid black;
+      background-color: gray;
     }
 
     img

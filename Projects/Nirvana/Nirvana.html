@@ -11,7 +11,15 @@
         <link rel="stylesheet" href="./style.css">
     </head>
 
-    <body>
+    <body style="
+                background: linear-gradient(
+                    to bottom,
+                    #d09d22 0px,
+                    #000000 100%
+                );
+                background-color: #000000;
+                background-repeat: no-repeat;
+                ">
         <div class="main">
             <div class="title">
                 Enemy Behavior
@@ -103,7 +111,8 @@
                         (which is the class that manages the coordination algorithms). 
                         This is useful to adapt the zones' sizes, depending on the battle environment (small, big, narrow, circular, etc...).<br>
                         I chose this class to inherit from Actor, because it made it easier for the level-designers to manage each area differently.
-                        However, this could have been a game-subsystem or something else depending on how we want to manage the battle system.
+                        However, this could have been a game-subsystem or something else depending on how we want to manage the battle system.<br>
+                        <br>
                     </div>
                     <br>
                     <div class="section">
@@ -125,7 +134,7 @@
                 <div class="subtitle">Shoots Calculation</div><br>
                 <div class="section">
                     <div class="text">
-                        Now that we have control the enemies and their positional behavior, 
+                        Now that we have control over the enemies and their positional behavior, 
                         it is way much easier to control their shoots.<br>
                         <br>
                         For example I can launch a shoot sequance such as:<br>
