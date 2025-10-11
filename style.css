@@ -1,4 +1,4 @@
-html, body { margin: 0; padding: 0; width: 100%; height: 100%;  }
+html, body { margin: 0; padding: 0; width: 100%; height: 100%;}
 
 @font-face 
 {
@@ -27,6 +27,8 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%;  }
 	font-family: Montserrat;
 	line-height: 1.8rem;
 	font-size: 0.9rem;
+	text-decoration: none;
+	color: var(--text-color-bright);
 }
 
 .gifScheme
@@ -43,6 +45,133 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%;  }
 {
 	padding-bottom: var(--footer-height);
 	width: 100%;
+}
+
+.mainTitle
+{
+	margin: auto;
+	background-color: #ffffff9e;
+	border-radius: 8px;
+	margin-left: 17%;
+	padding: 1rem;
+	font-size: 1.5rem;
+	color: var(--text-color);
+}
+
+.frontPicture{
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	
+	.frontPictureContent
+	{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		align-items: stretch;
+		display: flex;
+		flex-direction: column;
+		justify-content: end;
+	}
+}
+
+.showCaseGrid
+{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 80%;
+  gap: 3rem;
+  padding-top: 7%;
+  padding-bottom: 7%;
+}
+
+
+.projectBar
+{
+	padding: 2%;
+	background-color: rgba(0, 0, 0, 0.5);
+	grid-template-columns: 18% 18% 18%;
+	gap: 11%;
+}
+.project
+{
+	text-align: center;
+	background-color: var(--main-color);
+	border-radius: 0.4rem;
+	box-shadow: 0px 0px 0.5rem 0px rgba(0, 0, 0, 1);
+
+	transition: all 0.5s ease;
+
+	filter: brightness(0.5);
+
+	img
+	{
+		height: 100%;
+  		object-fit: contain;
+	}
+}
+.project:hover
+{
+	transform: scale(1.04);
+	filter: brightness(1.2);
+}
+
+.breakdown
+{
+	display: flex;
+	width: 100%;
+	background-color: #0b0b26d4;
+	border-radius: 8px;
+	overflow: hidden;
+
+	.thumbnail
+	{
+		display: flex;
+		flex-direction: column;
+		flex-basis: 11.5rem;
+
+		img 
+		{
+			flex-basis: 7.5rem;
+			object-fit: cover;
+			min-height: 100%;
+			max-width: 100%;
+		}
+	}
+
+	.detail
+	{
+		padding: 1.5rem;
+		display: flex;
+		flex-direction: column;	
+
+		.title
+		{
+			font-weight: bold;
+		}
+	}
+}
+
+.disclaimer
+{
+	justify-content: center;
+	display: flex;
+	margin: 1rem;
+
+	.text
+	{
+		font-family: Open Sans;
+		text-align: center;
+		color: #cf1717;
+		background-color: #ffe1e1;
+		border-style: dashed;
+		display: block;
+		max-width: 60%;
+		padding: 0.7rem;
+	}
 }
 
 .footer{
@@ -81,78 +210,4 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%;  }
 {
 	transform: scale(1.04);
 	filter: brightness(1.05);
-}
-
-.title
-{
-	font-weight: bold;
-	background-color: rgba(0, 0, 0, 0.18);
-	max-width: 34%;
-	margin: 1.5rem;
-	padding: 8px;
-}
-
-.projectBar
-{
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 80%;
-  gap: 1rem;
-  padding-top: 1%;
-  padding-bottom: 1%;
-
-	.project
-	{
-		align-content: center;
-		text-align: center;
-		background-color: var(--main-color);
-		border-radius: 0.4rem;
-		box-shadow: 0px 0px 0.5rem 0px rgba(0, 0, 0, 1);
-
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center center;
-
-		text-decoration: none;
-
-		transition: all 0.5s ease;
-
-		img
-		{
-			width: 100%;
-			margin: auto;
-			display: block;
-		}
-	}
-
-	.detail
-	{
-		text-align: left;
-		color: var(--text-color-bright);
-		margin: 3%;
-	}
-}
-.project:hover
-{
-	transform: scale(1.04);
-	filter: brightness(1.05);
-}
-
-.disclaimer
-{
-	justify-content: center;
-	display: flex;
-	margin: 1rem;
-
-	.text
-	{
-		font-family: Open Sans;
-		text-align: center;
-		color: #cf1717;
-		background-color: #ffe1e1;
-		border-style: dashed;
-		display: block;
-		max-width: 60%;
-		padding: 0.7rem;
-	}
 }
